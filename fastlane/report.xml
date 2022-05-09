@@ -5,39 +5,54 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: create_keychain" time="0.120832">
+      <testcase classname="fastlane.lanes" name="0: create_keychain" time="0.117896">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: import_certificate" time="0.15278">
+      <testcase classname="fastlane.lanes" name="1: import_certificate" time="0.154212">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: install_provisioning_profile" time="0.114978">
+      <testcase classname="fastlane.lanes" name="2: install_provisioning_profile" time="0.110856">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: increment_build_number" time="0.712028">
+      <testcase classname="fastlane.lanes" name="3: increment_build_number" time="0.647856">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: update_project_team" time="0.036556">
+      <testcase classname="fastlane.lanes" name="4: update_project_team" time="0.035918">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="5: update_project_provisioning" time="0.014656">
+      <testcase classname="fastlane.lanes" name="5: update_project_provisioning" time="0.013833">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="6: build_app" time="8.561911">
+      <testcase classname="fastlane.lanes" name="6: update_project_provisioning" time="0.012843">
         
-          <failure message="/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane/lib/fastlane/actions/actions_helper.rb:67:in `execute_action'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane/lib/fastlane/runner.rb:255:in `block in execute_action'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane/lib/fastlane/runner.rb:229:in `chdir'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane/lib/fastlane/runner.rb:229:in `execute_action'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane/lib/fastlane/runner.rb:157:in `trigger_action_by_name'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane/lib/fastlane/fast_file.rb:159:in `method_missing'&#10;Fastfile:116:in `buildApp'&#10;Fastfile:23:in `block in parsing_binding'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane/lib/fastlane/lane.rb:33:in `call'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane/lib/fastlane/runner.rb:49:in `block in execute'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane/lib/fastlane/runner.rb:45:in `chdir'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane/lib/fastlane/runner.rb:45:in `execute'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane/lib/fastlane/lane_manager.rb:47:in `cruise_lane'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane/lib/fastlane/command_line_handler.rb:36:in `handle'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane/lib/fastlane/commands_generator.rb:110:in `block (2 levels) in run'&#10;/Library/Ruby/Gems/2.6.0/gems/commander-4.6.0/lib/commander/command.rb:187:in `call'&#10;/Library/Ruby/Gems/2.6.0/gems/commander-4.6.0/lib/commander/command.rb:157:in `run'&#10;/Library/Ruby/Gems/2.6.0/gems/commander-4.6.0/lib/commander/runner.rb:444:in `run_active_command'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:124:in `run!'&#10;/Library/Ruby/Gems/2.6.0/gems/commander-4.6.0/lib/commander/delegates.rb:18:in `run!'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane/lib/fastlane/commands_generator.rb:354:in `run'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane/lib/fastlane/commands_generator.rb:43:in `start'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane/lib/fastlane/cli_tools_distributor.rb:122:in `take_off'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/bin/fastlane:23:in `&lt;top (required)&gt;'&#10;/usr/local/bin/fastlane:23:in `load'&#10;/usr/local/bin/fastlane:23:in `&lt;main&gt;'&#10;&#10;Error building the application - see the log above" />
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="7: unlock_keychain" time="0.061204">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="8: build_app" time="11.005453">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="9: upload_to_testflight" time="1.395253">
+        
+          <failure message="/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane/lib/fastlane/actions/actions_helper.rb:67:in `execute_action'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane/lib/fastlane/runner.rb:255:in `block in execute_action'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane/lib/fastlane/runner.rb:229:in `chdir'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane/lib/fastlane/runner.rb:229:in `execute_action'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane/lib/fastlane/runner.rb:157:in `trigger_action_by_name'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane/lib/fastlane/fast_file.rb:159:in `method_missing'&#10;Fastfile:24:in `block in parsing_binding'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane/lib/fastlane/lane.rb:33:in `call'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane/lib/fastlane/runner.rb:49:in `block in execute'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane/lib/fastlane/runner.rb:45:in `chdir'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane/lib/fastlane/runner.rb:45:in `execute'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane/lib/fastlane/lane_manager.rb:47:in `cruise_lane'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane/lib/fastlane/command_line_handler.rb:36:in `handle'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane/lib/fastlane/commands_generator.rb:110:in `block (2 levels) in run'&#10;/Library/Ruby/Gems/2.6.0/gems/commander-4.6.0/lib/commander/command.rb:187:in `call'&#10;/Library/Ruby/Gems/2.6.0/gems/commander-4.6.0/lib/commander/command.rb:157:in `run'&#10;/Library/Ruby/Gems/2.6.0/gems/commander-4.6.0/lib/commander/runner.rb:444:in `run_active_command'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:124:in `run!'&#10;/Library/Ruby/Gems/2.6.0/gems/commander-4.6.0/lib/commander/delegates.rb:18:in `run!'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane/lib/fastlane/commands_generator.rb:354:in `run'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane/lib/fastlane/commands_generator.rb:43:in `start'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/fastlane/lib/fastlane/cli_tools_distributor.rb:122:in `take_off'&#10;/Library/Ruby/Gems/2.6.0/gems/fastlane-2.205.2/bin/fastlane:23:in `&lt;top (required)&gt;'&#10;/usr/local/bin/fastlane:23:in `load'&#10;/usr/local/bin/fastlane:23:in `&lt;main&gt;'&#10;&#10;Couldn't find app 'io.tuist.HelpMeChooseIOS' on the account of 'gnejfejf2@icloud.com' on App Store Connect" />
         
       </testcase>
     

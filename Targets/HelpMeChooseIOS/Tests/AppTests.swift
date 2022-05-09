@@ -16,4 +16,8 @@ final class HelpMeChooseIOSTests: XCTestCase {
     func test_mutiple() {
         XCTAssertEqual(2 * 2, 4)
     }
+    
+    func test_Three() {
+        XCTAssertEqual(4 * 4, 16)
+    }
 }

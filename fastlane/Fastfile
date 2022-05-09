@@ -1,13 +1,13 @@
 AppName = "HelpMeChooseIOS"
 Schema = "HelpMeChooseIOS"
 BundleId = "io.tuist.HelpMeChooseIOS"
-ProvisioningProfiles = "291Project"
+ProvisioningProfiles = "291Fastalne"
 ApiKeyPath = "fastlane/29H93BJQ55.json"
 KeyChainName = "291KeyChain"
 KeyChainPassword = "dlrndurdmldlfemddmsdnfl"
-CertificatePath = "Certification/291PrivateKey.p12"
+CertificatePath = "Certification/Key.p12"
 CertificatePassword = "dlrndurdmldlfemddmsdnfl"
-InstallProvisioningProfile = "Certification/291Project.mobileprovision"
+InstallProvisioningProfile = "Certification/291Fastlane.mobileprovision"
 
 
 
@@ -21,6 +21,9 @@ desc "build app and upload to testflight"
        	)
 	
 	buildApp "Debug"
+	upload_to_testflight(
+		api_key_path: ApiKeyPath
+	)
    	
 end
 
@@ -63,8 +66,7 @@ def createKeyChain
 		password: KeyChainPassword,
 		timeout: 1800,
 		default_keychain: true,
-		unlock: true,
-		lock_when_sleeps: false
+		unlock: true
 	)
   
 end
@@ -108,9 +110,21 @@ def buildApp(configuration)
 	update_project_provisioning(
  		xcodeproj: AppName + ".xcodeproj" ,
 		profile: InstallProvisioningProfile, 
-		build_configuration: configuration
+		build_configuration: "Debug"
 	)
 
+	update_project_provisioning(
+ 		xcodeproj: AppName + ".xcodeproj" ,
+		profile: InstallProvisioningProfile, 
+		build_configuration: "Release"
+	)
+
+
+	unlock_keychain( 
+  		path: KeyChainName,
+  		password: KeyChainPassword
+	)
+	
 
 
 	build_app(
