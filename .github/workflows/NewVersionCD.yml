@@ -12,6 +12,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    
+    
+    - name: Install Tuist
+      run: |
+        bash <(curl -Ls https://install.tuist.io)
+    - name: Generate project
+      run: |
+          tuist generate
     - name: Fastlane Install
       run: brew install fastlane
     - name: Fsatlane NewVersionUpload
