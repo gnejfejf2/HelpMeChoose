@@ -1,0 +1,109 @@
+AppName = "HelpMeChooseIOS"
+Schema = "HelpMeChooseIOS"
+BundleId = "io.tuist.HelpMeChooseIOS"
+ProvisioningProfiles = "291Fastlane"
+ApiKeyPath = "fastlane/29H93BJQ55.json"
+KeyChainName = "291KeyChain"
+KeyChainPassword = "dlrndurdmldlfemddmsdnfl"
+CertificatePath = "Certification/291PrivateKey.p12"
+CertificatePassword = "dlrndurdmldlfemddmsdnfl"
+InstallProvisioningProfile = "Certification/291Fastlane.mobileprovision"
+
+
+
+desc "build app and upload to testflight"
+	lane :NewVersionUpload do
+	fastlaneSetting
+	
+	increment_build_number(
+            xcodeproj: AppName + ".xcodeproj",
+            build_number: 1
+       	)
+	
+	buildApp "Debug"
+   	
+end
+
+
+desc "build app and upload to testflight"
+	lane :DevServerUpload do
+	fastlaneSetting
+
+    	latest_build_number=latest_testflight_build_number(
+		api_key_path: ApiKeyPath
+	)
+	devBuild latest_build_number
+   	upload_to_testflight(
+		api_key_path: ApiKeyPath
+	)
+end
+
+
+
+desc "build app and upload to testflight"
+	lane :ProdServerUpload do
+	fastlaneSetting
+
+    	latest_build_number=latest_testflight_build_number(
+		api_key_path: ApiKeyPath
+	)
+
+	prodBuild latest_build_number
+   	
+	upload_to_testflight(
+		api_key_path: ApiKeyPath
+	)
+end
+
+
+
+def createKeyChain
+     	create_keychain(
+		name: KeyChainName ,
+		password: KeyChainPassword,
+		timeout: 1800,
+		default_keychain: true,
+		unlock: true,
+		lock_when_sleeps: false
+	)
+  
+end
+
+
+def importCertificate
+	import_certificate(
+  		certificate_path: CertificatePath,
+  		certificate_password: CertificatePassword,
+  		keychain_name: KeyChainName ,
+  		keychain_password: KeyChainPassword
+	)
+  
+end
+
+
+def incrementBuildNumber
+	increment_build_number(
+            	xcodeproj: AppName + ".xcodeproj"
+        	)
+end
+
+
+
+
+
+def fastlaneSetting
+	createKeyChain   
+	importCertificate
+	install_provisioning_profile(path: InstallProvisioningProfile)
+end
+
+def buildApp(configuration)
+	build_app(
+		workspace: AppName + ".xcworkspace", scheme: Schema , configuration: configuration ,
+		export_options: {
+     			provisioningProfiles: { 
+        				BundleId => ProvisioningProfiles
+     			}
+    		}
+    	)
+end
