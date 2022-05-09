@@ -1,0 +1,18 @@
+name: Swift
+
+on:
+  push:
+    branches: [ main ]
+
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Fastlane Install
+      run: brew install fastlane
+    - name: Fsatlane NewVersionUpload
+      run: fastlane NewVersionUpload
