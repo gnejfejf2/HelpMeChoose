@@ -1,13 +1,13 @@
 AppName = "HelpMeChooseIOS"
 Schema = "HelpMeChooseIOS"
 BundleId = "io.tuist.HelpMeChooseIOS"
-ProvisioningProfiles = "291Fastlane"
+ProvisioningProfiles = "291Project"
 ApiKeyPath = "fastlane/29H93BJQ55.json"
 KeyChainName = "291KeyChain"
 KeyChainPassword = "dlrndurdmldlfemddmsdnfl"
 CertificatePath = "Certification/291PrivateKey.p12"
 CertificatePassword = "dlrndurdmldlfemddmsdnfl"
-InstallProvisioningProfile = "Certification/291Fastlane.mobileprovision"
+InstallProvisioningProfile = "Certification/291Project.mobileprovision"
 
 
 
@@ -98,11 +98,26 @@ def fastlaneSetting
 end
 
 def buildApp(configuration)
+
+
+	update_project_team(
+ 		path: AppName + ".xcodeproj" ,
+  		teamid: "V4XA5J4GH9"
+	)
+
+	update_project_provisioning(
+ 		xcodeproj: AppName + ".xcodeproj" ,
+		profile: InstallProvisioningProfile, 
+		build_configuration: configuration
+	)
+
+
+
 	build_app(
 		workspace: AppName + ".xcworkspace", scheme: Schema , configuration: configuration ,
 		export_options: {
      			provisioningProfiles: { 
-        				BundleId => ProvisioningProfiles
+        				Schema => ProvisioningProfiles
      			}
     		}
     	)
