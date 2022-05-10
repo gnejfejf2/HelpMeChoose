@@ -22,7 +22,7 @@ jobs:
           tuist generate
 
     - name: Fastlane Setting
-      rub : fastlane match appstore
+      run : fastlane match appstore
     - name: Fastlane Install
       run: brew install fastlane
     - name: Fsatlane NewVersionUpload
