@@ -1,13 +1,19 @@
 AppName = "HelpMeChooseIOS"
 Schema = "HelpMeChooseIOS"
-BundleId = "io.tuist.HelpMeChooseIOS"
-ProvisioningProfiles = "291Fastalne"
+BundleId = "io.tuist.HelpMeChoose"
+
 ApiKeyPath = "fastlane/29H93BJQ55.json"
 KeyChainName = "291KeyChain"
 KeyChainPassword = "dlrndurdmldlfemddmsdnfl"
-CertificatePath = "Certification/Key.p12"
+CertificatePath = "Certification/FastalneKey.p12"
+CertificatePath2 = "Certification/DevelopKey.p12"
 CertificatePassword = "dlrndurdmldlfemddmsdnfl"
-InstallProvisioningProfile = "Certification/291Fastlane.mobileprovision"
+ProvisioningProfiles = "Fastalne"
+InstallProvisioningProfile = "Certification/Develop.mobileprovision"
+FastlaneProvisioningProfile = "Certification/Fastlane.mobileprovision"
+
+
+#ENV['MATCH_GIT_BEARER_AUTHORIZATION'] = 'dlrndurdmldlfemddmsdnfl'
 
 
 
@@ -21,9 +27,8 @@ desc "build app and upload to testflight"
        	)
 	
 	buildApp "Debug"
-	upload_to_testflight(
-		api_key_path: ApiKeyPath
-	)
+
+	testFlightUpload
    	
 end
 
@@ -68,7 +73,9 @@ def createKeyChain
 		default_keychain: true,
 		unlock: true
 	)
-  
+	
+
+
 end
 
 
@@ -79,7 +86,14 @@ def importCertificate
   		keychain_name: KeyChainName ,
   		keychain_password: KeyChainPassword
 	)
-  
+	import_certificate(
+  		certificate_path: CertificatePath2,
+  		certificate_password: CertificatePassword,
+  		keychain_name: KeyChainName ,
+  		keychain_password: KeyChainPassword
+	)  
+
+
 end
 
 
@@ -94,37 +108,21 @@ end
 
 
 def fastlaneSetting
-	createKeyChain   
-	importCertificate
-	install_provisioning_profile(path: InstallProvisioningProfile)
+#	createKeyChain   
+#	importCertificate
+#	install_provisioning_profile(path: InstallProvisioningProfile)
+#	install_provisioning_profile(path: FastlaneProvisioningProfile)
+
+	sync_code_signing(
+      		type: "appstore",
+      		app_identifier: 'io.tuist.HelpMeChoose',
+      		readonly: false
+    	)  
+
 end
 
 def buildApp(configuration)
 
-
-	update_project_team(
- 		path: AppName + ".xcodeproj" ,
-  		teamid: "V4XA5J4GH9"
-	)
-
-	update_project_provisioning(
- 		xcodeproj: AppName + ".xcodeproj" ,
-		profile: InstallProvisioningProfile, 
-		build_configuration: "Debug"
-	)
-
-	update_project_provisioning(
- 		xcodeproj: AppName + ".xcodeproj" ,
-		profile: InstallProvisioningProfile, 
-		build_configuration: "Release"
-	)
-
-
-	unlock_keychain( 
-  		path: KeyChainName,
-  		password: KeyChainPassword
-	)
-	
 
 
 	build_app(
@@ -136,3 +134,16 @@ def buildApp(configuration)
     		}
     	)
 end
+
+
+def testFlightUpload
+
+
+
+	upload_to_testflight(
+		api_key_path: ApiKeyPath ,
+		
+	)
+
+end
+ 

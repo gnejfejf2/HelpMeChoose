@@ -4,7 +4,7 @@ import ProjectDescriptionHelpers
 
 
 let infoPlist: [String: InfoPlist.Value] = [
-    "CFBundleShortVersionString": "1.0",
+    "CFBundleShortVersionString": "1.0.1",
     "CFBundleVersion": "1",
     "UILaunchStoryboardName": "LaunchScreen",
     "NSAppTransportSecurity" : ["NSAllowsArbitraryLoads":true],

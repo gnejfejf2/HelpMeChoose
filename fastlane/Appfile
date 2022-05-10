@@ -1,6 +1,8 @@
-app_identifier("io.tuist.HelpMeChooseIOS") # The bundle identifier of your app
+app_identifier("io.tuist.HelpMeChoose") # The bundle identifier of your app
+
 apple_id("gnejfejf2@icloud.com") # Your Apple email address
 
 
-# For more information about the Appfile, see:
-#     https://docs.fastlane.tools/advanced/#appfile
+team_name("JiYoun Kang")
+team_id("V4XA5J4GH9") # Developer Portal Team ID
+
