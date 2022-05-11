@@ -20,7 +20,7 @@ jobs:
         known_hosts: ${{ secrets.KNOWN_HOSTS }}
         
     - name: rsync over ssh
-      run: rsync ./foo/ user@remote:bar/
+      run: cat ~/.ssh/id_rsa.pub
     - name: Fastlane Install
       run: brew install fastlane
              
