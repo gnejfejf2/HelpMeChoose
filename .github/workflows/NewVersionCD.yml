@@ -25,10 +25,10 @@ jobs:
       with:
         key: ${{ secrets.SSH_KEY }}          
         known_hosts: ${{ secrets.KNOWN_HOSTS }}
-        sript : |
-          fastlane match appstore        
-
     - name: Fastlane Install
       run: brew install fastlane
+             
+    - name: Fastlane Match
+      run: fastlane match appstore
     - name: Fsatlane NewVersionUpload
       run: fastlane NewVersionUpload
