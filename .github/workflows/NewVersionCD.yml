@@ -19,8 +19,12 @@ jobs:
         key: ${{ secrets.SSH_KEY }}          
         known_hosts: ${{ secrets.KNOWN_HOSTS }}
         
-    - name: rsync over ssh
-      run: cat ~/.ssh/id_rsa.pub
+    - name: cdh
+      run: cd ~/.ssh
+    - name: lsh
+      run: ls
+      
+    
     - name: Fastlane Install
       run: brew install fastlane
              
