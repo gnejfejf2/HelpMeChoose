@@ -20,7 +20,13 @@ jobs:
     - name: Generate project
       run: |
           tuist generate
-
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
     - name: Fastlane Setting
       run : fastlane match appstore
     - name: Fastlane Install
