@@ -20,10 +20,11 @@ jobs:
         name: id_rsa
         known_hosts: ${{ secrets.KNOWN_HOSTS }}
 
-    - name:gitName
+    - name: gitName
       run: |
         git config --global user.name gnejfejf2
-    - name:gitid
+    
+    - name: gitid
       run: | 
         git config --global user.email gnejfejf3@naver.com
 
