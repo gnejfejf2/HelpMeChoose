@@ -12,20 +12,20 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: ls -a via ssh
-      uses: fifsky/ssh-action@master
+    
+  
+    - name: Install Tuist
+      run: |
+        bash <(curl -Ls https://install.tuist.io)
+    - name: Generate project
+      run: |
+          tuist generate
+    - name: executing remote ssh commands using password
+      uses: shimataro/ssh-key-action@v2
       with:
-        command: |
-          cd /tmp
-          ls -a
-        host: ${{ secrets.KNOWN_HOSTS }}
-        user: root
-        key: ${{ secrets.SSH_KEY}}
+        key: ${{ secrets.SSH_KEY }} 
+        name: id_rsa
+        known_hosts: ${{ secrets.KNOWN_HOSTS }}
 
-    - name: Fastlane Install
-      run: brew install fastlane
-             
-    - name: Fastlane Match
-      run: fastlane match appstore
     - name: Fsatlane NewVersionUpload
       run: fastlane NewVersionUpload
