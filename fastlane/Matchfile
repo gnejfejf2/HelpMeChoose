@@ -5,6 +5,7 @@ storage_mode("git")
 type("appstore") # The default type, can be: appstore, adhoc, enterprise or development
 
 ENV['MATCH_KEYCHAIN_PASSWORD'] = 'Dhrhd153!@'
+ENV['MATCH_PASSWORD'] = 'Dhrhd153!@'
 
 
 # app_identifier(["tools.fastlane.app", "tools.fastlane.app2"])
