@@ -21,7 +21,7 @@ jobs:
       run: |
           tuist generate
     - name: executing remote ssh commands using password
-      uses: appleboy/ssh-action@master
+      uses: shimataro/ssh-key-action@v2
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
