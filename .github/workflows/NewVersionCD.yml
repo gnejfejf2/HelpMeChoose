@@ -30,4 +30,5 @@ jobs:
         git remote set-url origin https://github.com/gnejfejf2/HelpMeChoose.git
 
     - name: Fastlane Match
-      run: fastlane match(username: 'gnejfejf3@naver.com') appstore
+      run: |
+        fastlane match(username: 'gnejfejf3@naver.com') appstore
