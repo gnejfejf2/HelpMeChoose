@@ -8,8 +8,7 @@ type("appstore") # The default type, can be: appstore, adhoc, enterprise or deve
 
 ENV['MATCH_KEYCHAIN_PASSWORD'] = 'Dhrhd153!@'
 ENV['MATCH_PASSWORD'] = "dlrndurdmldlfemddmsdnfl"
-ENV['MATCH_GIT_PRIVATE_KEY'] = "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"
-
+ENV['MATCH_GIT_BEARER_AUTHORIZATION'] = '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'
 # app_identifier(["tools.fastlane.app", "tools.fastlane.app2"])
 # username("user@fastlane.tools") # Your Apple Developer Portal username
 
