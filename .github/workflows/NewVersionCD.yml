@@ -32,3 +32,5 @@ jobs:
     - name: Fastlane Match
       run: |
         fastlane match(username: 'gnejfejf3@naver.com') appstore
+        env:
+          MATCH_PASSWORD: ${{ secrets.SSH_KEY }}
