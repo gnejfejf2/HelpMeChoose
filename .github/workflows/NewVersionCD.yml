@@ -23,11 +23,9 @@ jobs:
 
     - name: gitName
       run: |
+        git config --global user.email gnejfejf3@naver.com 
         git config --global user.name gnejfejf2
-    
-    - name: gitid
-      run: | 
-        git remote set-url origin https://github.com/gnejfejf2/HelpMeChoose.git
+
 
     - name: Fastlane Match
       run: |
