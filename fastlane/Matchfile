@@ -6,7 +6,8 @@ type("appstore") # The default type, can be: appstore, adhoc, enterprise or deve
 
 ENV['MATCH_KEYCHAIN_PASSWORD'] = 'Dhrhd153!@'
 ENV['MATCH_PASSWORD'] = "dlrndurdmldlfemddmsdnfl"
-
+ENV['MATCH_GIT_BASIC_AUTHORIZATION'] = 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDwsV34yFqfq/K6YL2ByLTIgWsLSRCqyXPG1Nekt838N0kvQCOAVmWcVgfJ8IMsS6S718MW+j87TFvH4+7a0WEuDG55YjO1cGKeEs9ICtTBIvVnRs5gGg2lwtoyzJXqV6gPyfoSjEYKNWe1BvpyNJjcJjzv+RB91S6NPKvOtNsk5KJXnJgwXV6nGyRspnHn02aX4Wl2rymTkOVcdHv77GtPZgLNu+5OvObw7b91kxPvzqRMRyLVnRyUV3aYJgBjVyewxVY2okLfmu6ei0oFzbbPPlEdoURtXKVpflOXzn2pnqr3Yw6BJax7Qw1/vXfMTb1eVNM2P8G7JYPq+2XDhsGJ2f3KdHjsP/osVYwKxO/cWlB95xpyfvzqj9nYVrW2YQCbSeIOpBeXf+gl/WwsmajbemgU/SXp5B48F+j5P/TzaiEnMvh81qbI30JdZ7GZEkOmPVIqYNpAhs6JpHHvAEfG1jemXSAJtELp0g1k32MVl8ctClQ0Dkm4Macx5c3f2K8= kangjiyoun@gangjiyuns-MacBook-Pro.local
+'
 
 # app_identifier(["tools.fastlane.app", "tools.fastlane.app2"])
 # username("user@fastlane.tools") # Your Apple Developer Portal username
