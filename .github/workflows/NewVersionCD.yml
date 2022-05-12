@@ -26,7 +26,7 @@ jobs:
         git config --global user.email gnejfejf3@naver.com 
         git config --global user.name gnejfejf2
         git remote set-url origin https://github.com/gnejfejf2/HelpMeChoose.git
-
+        git clone https://github.com/gnejfejf2/fastlaneMatch.git
     - name: Fastlane Match
       run: |
         fastlane match appstore
