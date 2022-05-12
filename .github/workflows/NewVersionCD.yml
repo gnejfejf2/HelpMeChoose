@@ -27,7 +27,7 @@ jobs:
     
     - name: gitid
       run: | 
-        git config --global user.email gnejfejf3@naver.com
+        git remote set-url origin https://github.com/gnejfejf2/HelpMeChoose.git
 
     - name: Fastlane Match
       run: fastlane match appstore
