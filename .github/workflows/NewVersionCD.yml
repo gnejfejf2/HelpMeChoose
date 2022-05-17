@@ -14,17 +14,17 @@ jobs:
         - uses: actions/checkout@v2
         - name: gitName
           env:
-            ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+            ssh-private-key: ${{ secrets.SSH_KEY }}
           run: |
             echo $ssh-private-key
 
         
         
-#        - uses: webfactory/ssh-agent@v0.5.4
-#          env:
-#            ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-#          with:
-#            ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+        - uses: webfactory/ssh-agent@v0.5.4
+          env:
+            ssh-private-key: ${{ secrets.SSH_KEY }}
+          with:
+            ssh-private-key: ${{ secrets.SSH_KEY }}
 #
 #
 #    - name: gitName
