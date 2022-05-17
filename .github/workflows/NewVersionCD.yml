@@ -12,6 +12,11 @@ jobs:
 
     steps:
         - uses: actions/checkout@v2
+        - name: gitName
+          run: |
+            echo ${{ secrets.SSH_PRIVATE_KEY }}
+        
+        
         - uses: webfactory/ssh-agent@v0.5.4
           with:
             sh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
