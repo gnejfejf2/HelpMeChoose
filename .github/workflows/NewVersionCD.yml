@@ -19,6 +19,8 @@ jobs:
         
         
         - uses: webfactory/ssh-agent@v0.5.4
+          env:
+            ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
           with:
             ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 #
