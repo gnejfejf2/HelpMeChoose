@@ -12,7 +12,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: fregante/setup-git-user@v1
     - name: executing remote ssh commands using password
       uses: shimataro/ssh-key-action@v2
       with:
