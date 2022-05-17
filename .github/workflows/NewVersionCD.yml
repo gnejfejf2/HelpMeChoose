@@ -24,7 +24,7 @@ jobs:
       run: |
         git config --global user.email gnejfejf3@naver.com 
         git config --global user.name gnejfejf2
-        ssh-add id_rsa
+        ssh-add ~/Users/runner/.ssh/id_rsa
     - name: Fastlane Match
       run: |
         fastlane match appstore
