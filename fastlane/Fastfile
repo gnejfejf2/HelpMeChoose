@@ -19,17 +19,46 @@ FastlaneProvisioningProfile = "Certification/Fastlane.mobileprovision"
 
 desc "build app and upload to testflight"
 	lane :NewVersionUpload do
-	fastlaneSetting
-	
-	increment_build_number(
-            xcodeproj: AppName + ".xcodeproj",
-            build_number: 1
-       	)
+	#fastlaneSetting
+	#fastalne match
+
+	#get_certificates
+    	#get_provisioning_profile
+
+
+    	sync_code_signing(
+      		type: "appstore",
+      		app_identifier: BundleId,
+      		readonly: true
+    	)
+
+
+    	latest_build_number=latest_testflight_build_number(
+		api_key_path: ApiKeyPath
+	)
 	
 	buildApp "Debug"
 
-	testFlightUpload
+#	testFlightUpload
    	
+end
+
+
+desc "Get certificates"
+  lane :certificates do
+    sync_code_signing(
+      type: "development",
+      app_identifier: BundleId,
+      force_for_new_devices: true,
+      readonly: false
+    )
+
+    # You can repeate the sync_code_signing with other types of certificates such as appstore and adhoc
+    sync_code_signing(
+      type: "appstore",
+      app_identifier: BundleId,
+      readonly: false
+    )
 end
 
 
@@ -126,12 +155,7 @@ def buildApp(configuration)
 
 
 	build_app(
-		workspace: AppName + ".xcworkspace", scheme: Schema , configuration: configuration ,
-		export_options: {
-     			provisioningProfiles: { 
-        				Schema => ProvisioningProfiles
-     			}
-    		}
+		workspace: AppName + ".xcworkspace" , configuration: configuration
     	)
 end
 
@@ -147,3 +171,5 @@ def testFlightUpload
 
 end
  
+
+

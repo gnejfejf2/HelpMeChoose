@@ -21,6 +21,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 build app and upload to testflight
 
+### certificates
+
+```sh
+[bundle exec] fastlane certificates
+```
+
+Get certificates
+
 ### DevServerUpload
 
 ```sh
