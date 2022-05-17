@@ -11,18 +11,16 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - uses: webfactory/ssh-agent@v0.5.4
-      with:
-          sh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-
-    - name: gitName
-      run: |
-        git config --global user.email gnejfejf3@naver.com 
-        git config --global user.name gnejfejf2
-    - name: Fastlane Match
-      run: |
-        fastlane match appstore
-        env:
-          MATCH_PASSWORD: ${{ secrets.SSH_KEY }}
+        - actions/checkout@v2
+        - uses: webfactory/ssh-agent@v0.5.4
+          with:
+            sh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+#
+#
+#    - name: gitName
+#      run: |
+#        git config --global user.email gnejfejf3@naver.com 
+#        git config --global user.name gnejfejf2
+#    - name: Fastlane Match
+#      run: |
+#        fastlane match appstore
