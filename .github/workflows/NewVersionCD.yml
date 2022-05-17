@@ -20,7 +20,7 @@ jobs:
         
         - uses: webfactory/ssh-agent@v0.5.4
           with:
-            ssh-private-key: "123123123"
+            ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 #
 #
 #    - name: gitName
