@@ -16,7 +16,7 @@ jobs:
           env:
             ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
           run: |
-            echo "$ssh-private-key"
+            echo $ssh-private-key
 
         
         
