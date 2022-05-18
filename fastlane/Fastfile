@@ -59,7 +59,7 @@ desc "Get certificates"
     sync_code_signing(
       	type: "development",
       	app_identifier: BundleId,
-	api_key_path: ApiKeyPath
+	api_key_path: ApiKeyPath,
 	force_for_new_devices: true,
       	readonly: false
     )
