@@ -28,3 +28,6 @@ jobs:
     - name: Fastlane Match
       run: |
         fastlane certificates
+    - name: Fastlane Match
+      run: |
+        fastlane NewVersionUpload
