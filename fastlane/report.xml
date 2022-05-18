@@ -5,12 +5,32 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: sync_code_signing" time="6.008992">
+      <testcase classname="fastlane.lanes" name="0: sync_code_signing" time="1.916543">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: sync_code_signing" time="3.968258">
+      <testcase classname="fastlane.lanes" name="1: match" time="6.145871">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="2: match" time="5.887085">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="3: latest_testflight_build_number" time="1.672673">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="4: update_project_team" time="0.07651">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="5: build_app" time="38.937647">
         
       </testcase>
     

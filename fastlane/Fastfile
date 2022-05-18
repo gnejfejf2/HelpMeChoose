@@ -13,31 +13,22 @@ InstallProvisioningProfile = "Certification/Develop.mobileprovision"
 FastlaneProvisioningProfile = "Certification/Fastlane.mobileprovision"
 
 
-DEVELOPER_APP_ID = ENV["DEVELOPER_APP_ID"]
-DEVELOPER_APP_IDENTIFIER = ENV["DEVELOPER_APP_IDENTIFIER"]
-PROVISIONING_PROFILE_SPECIFIER = ENV["PROVISIONING_PROFILE_SPECIFIER"]
-TEMP_KEYCHAIN_USER = ENV["TEMP_KEYCHAIN_USER"]
-TEMP_KEYCHAIN_PASSWORD = ENV["TEMP_KEYCHAIN_PASSWORD"]
-APPLE_ISSUER_ID = ENV["APPLE_ISSUER_ID"]
-APPLE_KEY_ID = ENV["APPLE_KEY_ID"]
-APPLE_KEY_CONTENT = ENV["APPLE_KEY_CONTENT"]
-GIT_AUTHORIZATION = ENV["GIT_AUTHORIZATION"]
 
 desc "build app and upload to testflight"
 	lane :NewVersionUpload do
 	#fastlaneSetting
 	#fastalne match
 
-	#get_certificates
-    	#get_provisioning_profile
+	
+    	sync_code_signing(
+      		type: "appstore",
+		username: "JiYoun Kang",
+      		app_identifier: BundleId,
+      		readonly: true
+    	)
 
-
-    	#sync_code_signing(
-      	#	type: "appstore",
-      	#	app_identifier: BundleId,
-      	#	readonly: true
-    	#)
-
+	match(type: "appstore")
+	match(type: "appstore")
 
     	latest_build_number=latest_testflight_build_number(
 		api_key_path: ApiKeyPath
@@ -166,14 +157,25 @@ end
 
 def buildApp(configuration)
 
+	#update_project_provisioning(
+  	#	xcodeproj: "HelpMeChooseIOS.xcodeproj",
+  	#	profile: "AppStore_io.tuist.HelpMeChoose.mobileprovision", # optional if you use sigh
+	#	target_filter: "JiYoun Kang",
+  	#	build_configuration: configuration,
+  	#	code_signing_identity: "Apple Distribution" # optionally specify the codesigning identity
+	#)
 
+	update_project_team(
+  		path: AppName + ".xcodeproj",
+  		teamid: "V4XA5J4GH9"
+	)
 
 	build_app(
-		workspace: AppName + ".xcworkspace"  , scheme: Scheme  , configuration: configuration ,
-    		export_method: "app-store",
+		workspace: AppName + ".xcworkspace"  , scheme: Scheme  , configuration: configuration,
+ 		export_method: "app-store",
     		export_options: {
-      				provisioningProfiles: { 
-        				Scheme => "Apple Distribution"
+      			provisioningProfiles: { 
+        				Scheme => "match AppStore io.tuist.HelpMeChoose"
       			}
     		}
     	)
