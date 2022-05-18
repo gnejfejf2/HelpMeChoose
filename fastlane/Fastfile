@@ -125,13 +125,15 @@ def importCertificate
   		certificate_path: CertificatePath,
   		certificate_password: CertificatePassword,
   		keychain_name: KeyChainName ,
-  		keychain_password: KeyChainPassword
+  		keychain_password: KeyChainPassword,
+		readonly: true
 	)
 	import_certificate(
   		certificate_path: CertificatePath2,
   		certificate_password: CertificatePassword,
   		keychain_name: KeyChainName ,
-  		keychain_password: KeyChainPassword
+  		keychain_password: KeyChainPassword,
+		readonly: true
 	)  
 
 
@@ -167,7 +169,13 @@ def buildApp(configuration)
 
 
 	build_app(
-		workspace: AppName + ".xcworkspace"  , scheme: Scheme  , configuration: configuration
+		workspace: AppName + ".xcworkspace"  , scheme: Scheme  , configuration: configuration ,
+    		export_method: "app-store",
+    		export_options: {
+      				provisioningProfiles: { 
+        				Scheme => "Apple Distribution"
+      			}
+    		}
     	)
 end
 
