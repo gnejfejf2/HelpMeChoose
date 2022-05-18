@@ -4,9 +4,6 @@ BundleId = "io.tuist.HelpMeChoose"
 
 ApiKeyPath = "fastlane/29H93BJQ55.json"
 
-
-ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = "627d91c8-cce6-4b96-b60a-d7022048374f"
-
 desc "build app and upload to testflight"
 	lane :NewVersionUpload do
 
@@ -19,7 +16,7 @@ desc "build app and upload to testflight"
       		readonly: true
     	)
 
-	
+	match(type: "appstore")
 
     	latest_build_number=latest_testflight_build_number(
 		api_key_path: ApiKeyPath
@@ -148,7 +145,7 @@ def fastlaneSetting
 end
 
 def buildApp(configuration)
-	
+	ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = "627d91c8-cce6-4b96-b60a-d7022048374f"
 
 
 	update_project_team(
