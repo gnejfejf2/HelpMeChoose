@@ -32,11 +32,11 @@ desc "build app and upload to testflight"
     	#get_provisioning_profile
 
 
-    	sync_code_signing(
-      		type: "appstore",
-      		app_identifier: BundleId,
-      		readonly: true
-    	)
+    	#sync_code_signing(
+      	#	type: "appstore",
+      	#	app_identifier: BundleId,
+      	#	readonly: true
+    	#)
 
 
     	latest_build_number=latest_testflight_build_number(
