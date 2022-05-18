@@ -13,15 +13,37 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 # Available Actions
 
-## iOS
-
-### ios closed_beta
+### NewVersionUpload
 
 ```sh
-[bundle exec] fastlane ios closed_beta
+[bundle exec] fastlane NewVersionUpload
 ```
 
+build app and upload to testflight
 
+### certificates
+
+```sh
+[bundle exec] fastlane certificates
+```
+
+Get certificates
+
+### DevServerUpload
+
+```sh
+[bundle exec] fastlane DevServerUpload
+```
+
+build app and upload to testflight
+
+### ProdServerUpload
+
+```sh
+[bundle exec] fastlane ProdServerUpload
+```
+
+build app and upload to testflight
 
 ----
 
