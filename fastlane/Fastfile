@@ -153,7 +153,7 @@ def buildApp(configuration)
 		teamid: "V4XA5J4GH9"
 	)
 
-	build_app(
+	gym(
 		workspace: AppName + ".xcworkspace"  , scheme: Scheme  , configuration: configuration,
 		export_method: "app-store",
     		export_options: {
