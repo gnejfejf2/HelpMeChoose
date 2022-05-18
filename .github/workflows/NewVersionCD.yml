@@ -27,6 +27,6 @@ jobs:
         ssh-add ~/.ssh/id_rsa
     - name: Fastlane Match
       run: |
-        fastlane match appstore
+        fastlane certificates
         env:
           MATCH_PASSWORD: ${{ secrets.SSH_KEY }}
