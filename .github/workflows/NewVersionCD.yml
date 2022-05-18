@@ -19,15 +19,15 @@ jobs:
 #        name: id_rsa
 #        known_hosts: ${{ secrets.KNOWN_HOSTS }}
 
-
-#    - name: gitName
-#      run: |
-#        git config --global user.email gnejfejf3@naver.com 
-#        git config --global user.name gnejfejf2
-#        ssh-add ~/.ssh/id_rsa
+    - name: Install Tuist
+      run: |
+        bash <(curl -Ls https://install.tuist.io)
+    - name: Generate project
+      run: |
+          tuist generate
     - name: Fastlane Match
       run: |
         fastlane certificates
-    - name: Fastlane Match
+    - name: Fastlane Upload
       run: |
         fastlane NewVersionUpload
