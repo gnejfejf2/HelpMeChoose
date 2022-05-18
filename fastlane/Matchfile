@@ -7,7 +7,7 @@ type("appstore") # The default type, can be: appstore, adhoc, enterprise or deve
 app_identifier("io.tuist.HelpMeChoose")
 
 ENV['MATCH_GIT_BASIC_AUTHORIZATION'] = "Z25lamZlamYyOmdocF91dUV5UnJpaDZRMVBZTk1iMTJqeUlPT2RuWXFWc24wM2VnNjY="
-ENV["MATCH_PASSWORD"] = "Dhrhd153!@"
+ENV["MATCH_PASSWORD"] = "dlrndurdmldlfemddmsdnfl"
 
 
 ENV['MATCH_KEYCHAIN_PASSWORD'] = "dlrndurdmldlfemddmsdnfl"
