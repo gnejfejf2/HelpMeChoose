@@ -156,7 +156,7 @@ def fastlaneSetting
 end
 
 def buildApp(configuration)
-
+	ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = "627d91c8-cce6-4b96-b60a-d7022048374f"
 	#update_project_provisioning(
   	#	xcodeproj: "HelpMeChooseIOS.xcodeproj",
   	#	profile: "AppStore_io.tuist.HelpMeChoose.mobileprovision", # optional if you use sigh
