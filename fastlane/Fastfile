@@ -164,11 +164,9 @@ def buildApp(configuration)
 	
 	build_app(
 		workspace: AppName + ".xcworkspace"  , scheme: Scheme  , configuration: configuration,
-		export_method: "app-store",
-    		export_options: {
-      			provisioningProfiles: { 
-        				Scheme => "match AppStore io.tuist.HelpMeChoose"
-      			}
+		export_options: {
+     	 		method: "app-store",
+      			signingStyle: "manual"
     		}
     	)
 end
