@@ -15,6 +15,7 @@ desc "build app and upload to testflight"
     	)
 
 
+	match(type: "appstore")
     	sync_code_signing(
       		type: "appstore",
 		username: "JiYoun Kang",
@@ -22,7 +23,7 @@ desc "build app and upload to testflight"
       		readonly: true
     	)
 
-	match(type: "appstore")
+	
 
     	latest_build_number=latest_testflight_build_number(
 		api_key_path: ApiKeyPath
@@ -30,7 +31,7 @@ desc "build app and upload to testflight"
 	
 	buildApp "Debug"
 
-	pilot( api_key_path: ApiKeyPath )
+#	pilot( api_key_path: ApiKeyPath )
 #	testFlightUpload
    	
 end
@@ -151,15 +152,17 @@ def fastlaneSetting
 end
 
 def buildApp(configuration)
-	ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = "627d91c8-cce6-4b96-b60a-d7022048374f"
-
+	
 
 	update_project_team(
   		path: AppName + ".xcodeproj",
 		teamid: "V4XA5J4GH9"
 	)
 
-	gym(
+	
+
+	
+	build_app(
 		workspace: AppName + ".xcworkspace"  , scheme: Scheme  , configuration: configuration,
 		export_method: "app-store",
     		export_options: {
