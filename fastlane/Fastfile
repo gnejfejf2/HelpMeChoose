@@ -167,6 +167,7 @@ def buildApp(configuration)
 
 	update_project_team(
   		path: AppName + ".xcodeproj",
+		api_key_path: ApiKeyPath,
   		teamid: "V4XA5J4GH9"
 	)
 
