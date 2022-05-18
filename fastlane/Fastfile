@@ -1,5 +1,5 @@
 AppName = "HelpMeChooseIOS"
-Schema = "HelpMeChooseIOS"
+Scheme = "HelpMeChooseIOS"
 BundleId = "io.tuist.HelpMeChoose"
 
 ApiKeyPath = "fastlane/29H93BJQ55.json"
@@ -167,7 +167,7 @@ def buildApp(configuration)
 
 
 	build_app(
-		workspace: AppName + ".xcworkspace" , configuration: configuration
+		workspace: AppName + ".xcworkspace"  , scheme: Scheme  , configuration: configuration
     	)
 end
 
