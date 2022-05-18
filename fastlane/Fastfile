@@ -172,6 +172,7 @@ def buildApp(configuration)
 
 	build_app(
 		workspace: AppName + ".xcworkspace"  , scheme: Scheme  , configuration: configuration,
+		api_key_path: ApiKeyPath,
  		export_method: "app-store",
     		export_options: {
       			provisioningProfiles: { 
