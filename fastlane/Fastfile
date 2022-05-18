@@ -3,23 +3,15 @@ Scheme = "HelpMeChooseIOS"
 BundleId = "io.tuist.HelpMeChoose"
 
 ApiKeyPath = "fastlane/29H93BJQ55.json"
-KeyChainName = "291KeyChain"
-KeyChainPassword = "dlrndurdmldlfemddmsdnfl"
-CertificatePath = "Certification/FastalneKey.p12"
-CertificatePath2 = "Certification/DevelopKey.p12"
-CertificatePassword = "dlrndurdmldlfemddmsdnfl"
-ProvisioningProfiles = "Fastalne"
-InstallProvisioningProfile = "Certification/Develop.mobileprovision"
-FastlaneProvisioningProfile = "Certification/Fastlane.mobileprovision"
 
 
+ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = "627d91c8-cce6-4b96-b60a-d7022048374f"
 
 desc "build app and upload to testflight"
 	lane :NewVersionUpload do
-	#fastlaneSetting
-	#fastalne match
 
 	
+
     	sync_code_signing(
       		type: "appstore",
 		username: "JiYoun Kang",
@@ -27,8 +19,7 @@ desc "build app and upload to testflight"
       		readonly: true
     	)
 
-	match(type: "appstore")
-	match(type: "appstore")
+	
 
     	latest_build_number=latest_testflight_build_number(
 		api_key_path: ApiKeyPath
@@ -36,6 +27,7 @@ desc "build app and upload to testflight"
 	
 	buildApp "Debug"
 
+	pilot( api_key_path: ApiKeyPath )
 #	testFlightUpload
    	
 end
@@ -156,25 +148,17 @@ def fastlaneSetting
 end
 
 def buildApp(configuration)
-	ENV["FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD"] = "627d91c8-cce6-4b96-b60a-d7022048374f"
-	#update_project_provisioning(
-  	#	xcodeproj: "HelpMeChooseIOS.xcodeproj",
-  	#	profile: "AppStore_io.tuist.HelpMeChoose.mobileprovision", # optional if you use sigh
-	#	target_filter: "JiYoun Kang",
-  	#	build_configuration: configuration,
-  	#	code_signing_identity: "Apple Distribution" # optionally specify the codesigning identity
-	#)
+	
+
 
 	update_project_team(
   		path: AppName + ".xcodeproj",
-		api_key_path: ApiKeyPath,
-  		teamid: "V4XA5J4GH9"
+		teamid: "V4XA5J4GH9"
 	)
 
 	build_app(
 		workspace: AppName + ".xcworkspace"  , scheme: Scheme  , configuration: configuration,
-		api_key_path: ApiKeyPath,
- 		export_method: "app-store",
+		export_method: "app-store",
     		export_options: {
       			provisioningProfiles: { 
         				Scheme => "match AppStore io.tuist.HelpMeChoose"
@@ -184,16 +168,6 @@ def buildApp(configuration)
 end
 
 
-def testFlightUpload
 
-
-
-	upload_to_testflight(
-		api_key_path: ApiKeyPath ,
-		
-	)
-
-end
- 
 
 
