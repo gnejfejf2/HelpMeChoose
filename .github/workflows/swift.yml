@@ -1,0 +1,74 @@
+name: CI-Test
+
+on:
+  pull_request:
+    branches: [ Develop ]
+
+jobs:
+  DEVELOP-CI:
+    runs-on: macos-latest
+    env:
+      TARGET_ENV: Debug
+      XCWORKSPACE: HelpMeChooseIOS.xcworkspace
+      SCHEME: HelpMeChooseIOS
+      DESTINATION: platform=iOS Simulator,name=iPhone 13
+
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install Tuist
+      run: |
+        bash <(curl -Ls https://install.tuist.io)
+    - name: Generate project
+      run: |
+          tuist generate
+    - name: Check Xcode
+      run: ls -n /Applications/ | grep Xcode
+    - name: Build
+      run: |
+        xcodebuild clean test -workspace "$XCWORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION"
+
+    - name: CI Finish Message (Success)
+      run: |
+        echo $?
+    #    curl -i -X POST ${{ env.MATTERMOST_WEBHOOK_URL }} \
+    #    -H 'Content-Type: application/json' \
+    #    --data '{"channel":"${{ env.MATTERMOST_WEBHOOK_CHANNEL }}","attachments":[{"color":"#44ff00","text":"##### [iOS CI Action Success]
+    #    `Project Name` : ${{ github.repository }} (Run Number: ${{ github.run_number }})
+    #    `Target Env` : ${{ env.TARGET_ENV }}
+    #    `PR Number` : ${{ github.ref_name }}
+    #    `Request Uername` : ${{ github.actor }}
+    #    `CI Result` : ${{ job.status }}"}]}'
+    ### Only Comment to PR (Not Used)
+    ##- if: failure()
+    ##  name: Comment To PR (Failed)
+    ##  uses: actions/github-script@v5.0.0
+    ##  with:
+    ##    github-token: ${{ github.token }}
+    ##    script: |
+    ##      github.rest.issues.createComment({
+    ##        issue_number: context.issue.number,
+    ##        owner: context.repo.owner,
+    ##        repo: context.repo.repo,
+    ##        body: 'Code test failed!! Check Again!! GitAction Number is [ ${{ github.run_number }} ]'
+    ##      })
+
+
+    - if: failure()
+      name: CI Finish Message (Failed)
+      run: |
+    #    curl -i -X POST ${{ env.MATTERMOST_WEBHOOK_URL }} \
+    #    -H 'Content-Type: application/json' \
+    #    --data '{"channel":"${{ env.MATTERMOST_WEBHOOK_CHANNEL }}","attachments":[{"color":"#ff0000","text":"##### [iOS CI Action Failed]
+    #    `Project Name` : ${{ github.repository }} (Run Number: ${{ github.run_number }})
+    #    `Target Env` : ${{ env.TARGET_ENV }}
+    #    `PR Number` : ${{ github.ref_name }}
+    #    `Request Uername` : ${{ github.actor }}
+    #    `CI Result` : ${{ job.status }}"}]}'
+    ### Comment to PR and Close PR
+    #- if: failure()
+    #  name: Comment To PR (Failed)
+    #  uses: peter-evans/close-pull@v1.1.3
+    #  with:
+    #    comment: 'Code test failed!! Check Again!! GitAction Number is [ ${{ github.run_number }} ]'
