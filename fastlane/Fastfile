@@ -21,7 +21,17 @@ desc "build app and upload to testflight"
 
 
 
-	
+	sync_code_signing(
+      		type: "development",
+      		app_identifier: 'io.tuist.HelpMeChoose',
+      		readonly: true
+    	)
+
+	sync_code_signing(
+      		type: "appstore",
+      		app_identifier: 'io.tuist.HelpMeChoose',
+      		readonly: true
+    	)
 
     	latest_build_number=latest_testflight_build_number(
 		api_key_path: ApiKeyPath
@@ -141,31 +151,36 @@ def fastlaneSetting
 #	install_provisioning_profile(path: InstallProvisioningProfile)
 #	install_provisioning_profile(path: FastlaneProvisioningProfile)
 
-	sync_code_signing(
-      		type: "appstore",
-      		app_identifier: 'io.tuist.HelpMeChoose',
-      		readonly: false
-    	)  
+  
 
 end
 
 def buildApp(configuration)
+
+
 	
 
-	update_project_team(
-  		path: AppName + ".xcodeproj",
-		teamid: "V4XA5J4GH9"
-	)
-	match(type: "appstore")
+	#update_project_team(
+  	#	path: AppName + ".xcodeproj",
+	#	teamid: "V4XA5J4GH9"
+	#)
+	#match(type: "appstore")
+
+	
+
 
 	build_app(
-		workspace: AppName + ".xcworkspace"  , scheme: Scheme  , configuration: configuration,
+		workspace: AppName + ".xcworkspace", 
+		scheme: Scheme, 
+		configuration: configuration,
+		xcargs: "-allowProvisioningUpdates",
 		export_method: "app-store",
     		export_options: {
       			provisioningProfiles: { 
-        				BundleId => "match AppStore io.tuist.HelpMeChoose"
+        				BundleId => 'match Development io.tuist.HelpMeChoose'
       			}
-    		}
+    		},
+		xcargs: "PROVISIONING_PROFILE_SPECIFIER='match Development io.tuist.HelpMeChoose'"
     	)
 end
 
