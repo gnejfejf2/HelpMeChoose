@@ -193,7 +193,7 @@ def buildApp(configuration)
         				BundleId => 'match Development io.tuist.HelpMeChoose'
       			}
     		},
-		xcargs: "PROVISIONING_PROFILE_SPECIFIER='match Development io.tuist.HelpMeChoose'""
+		xcargs: "PROVISIONING_PROFILE_SPECIFIER='match Development io.tuist.HelpMeChoose'"
     	)
 end
 
