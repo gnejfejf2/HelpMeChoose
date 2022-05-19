@@ -13,12 +13,14 @@ desc "build app and upload to testflight"
 	lane :NewVersionUpload do
 
 	
+	
 	 app_store_connect_api_key(
     		key_id: "29H93BJQ55",
     		issuer_id: "627d91c8-cce6-4b96-b60a-d7022048374f",
     		key_content: "-----BEGIN PRIVATE KEY-----\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQg9O4zrN202k1PMdcl\nOKnw8hQDsV55UbOpf6ArUWr+deSgCgYIKoZIzj0DAQehRANCAAS9AkrqDCywxzeH\n1/FCNXV/fm6aTwLHSC3wgzuS54+ykdjZBTBr14hveIQU+rlXXlPwn0gk418lyOwP\n2nB4h/QM\n-----END PRIVATE KEY-----"
     	)
 
+	
 
 
 	sync_code_signing(
@@ -157,13 +159,23 @@ end
 
 def buildApp(configuration)
 
-
+	#update_code_signing_settings(
+  	#	use_automatic_signing: false,
+  	#	code_sign_identity: 'iPhone Distribution',
+	#)
+	
+	update_code_signing_settings(
+  		use_automatic_signing: false,
+  		path: AppName + ".xcodeproj",
+	)
 	
 
-	#update_project_team(
-  	#	path: AppName + ".xcodeproj",
-	#	teamid: "V4XA5J4GH9"
-	#)
+	update_project_team(
+  		path: AppName + ".xcodeproj",
+		teamid: "V4XA5J4GH9"
+	)
+	
+	
 	#match(type: "appstore")
 
 	
@@ -176,11 +188,13 @@ def buildApp(configuration)
 		xcargs: "-allowProvisioningUpdates",
 		export_method: "app-store",
     		export_options: {
+			
       			provisioningProfiles: { 
         				BundleId => 'match Development io.tuist.HelpMeChoose'
       			}
     		},
-		xcargs: "PROVISIONING_PROFILE_SPECIFIER='match Development io.tuist.HelpMeChoose'"
+		xcargs: "PROVISIONING_PROFILE_SPECIFIER='match Development io.tuist.HelpMeChoose'",
+		codesigning_identity: "match Development io.tuist.HelpMeChoose"
     	)
 end
 

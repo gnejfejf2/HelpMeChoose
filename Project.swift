@@ -9,6 +9,8 @@ let infoPlist: [String: InfoPlist.Value] = [
     "UILaunchStoryboardName": "LaunchScreen",
     "NSAppTransportSecurity" : ["NSAllowsArbitraryLoads":true],
     "UISupportedInterfaceOrientations" : ["UIInterfaceOrientationPortrait"],
+    "method":"development",
+    
     "UIUserInterfaceStyle":"Light",
     "UIApplicationSceneManifest" : ["UIApplicationSupportsMultipleScenes":true,
                                     "UISceneConfigurations":[
