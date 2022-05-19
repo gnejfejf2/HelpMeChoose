@@ -41,8 +41,8 @@ desc "build app and upload to testflight"
 	
 	buildApp "Debug"
 
-#	pilot( api_key_path: ApiKeyPath )
-	testFlightUpload
+	pilot( api_key_path: ApiKeyPath )
+#	testFlightUpload
    	
 end
 
@@ -181,7 +181,7 @@ def buildApp(configuration)
 	
 
 
-	build_app(
+	gym(
 		workspace: AppName + ".xcworkspace", 
 		scheme: Scheme, 
 		configuration: configuration,
