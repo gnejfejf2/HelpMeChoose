@@ -20,20 +20,6 @@ desc "build app and upload to testflight"
     		key_content: "-----BEGIN PRIVATE KEY-----\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQg9O4zrN202k1PMdcl\nOKnw8hQDsV55UbOpf6ArUWr+deSgCgYIKoZIzj0DAQehRANCAAS9AkrqDCywxzeH\n1/FCNXV/fm6aTwLHSC3wgzuS54+ykdjZBTBr14hveIQU+rlXXlPwn0gk418lyOwP\n2nB4h/QM\n-----END PRIVATE KEY-----"
     	)
 
-	
-
-
-	sync_code_signing(
-      		type: "development",
-      		app_identifier: 'io.tuist.HelpMeChoose',
-      		readonly: true
-    	)
-
-	sync_code_signing(
-      		type: "appstore",
-      		app_identifier: 'io.tuist.HelpMeChoose',
-      		readonly: true
-    	)
 
     	latest_build_number=latest_testflight_build_number(
 		api_key_path: ApiKeyPath
