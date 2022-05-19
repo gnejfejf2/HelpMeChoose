@@ -42,7 +42,7 @@ desc "build app and upload to testflight"
 	buildApp "Debug"
 
 #	pilot( api_key_path: ApiKeyPath )
-#	testFlightUpload
+	testFlightUpload
    	
 end
 
