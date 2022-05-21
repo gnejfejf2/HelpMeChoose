@@ -4,7 +4,7 @@ BundleId = "io.tuist.HelpMeChoose"
 
 ApiKeyPath = "fastlane/29H93BJQ55.json"
 
-ENV["DEVELOPMENT_TEAM"] = "Dhrhd153!@"
+#
 ENV['PROVISIONING_PROFILE_SPECIFIER'] = "match AppStore io.tuist.HelpMeChoose"
 
 
