@@ -6,7 +6,9 @@ ApiKeyPath = "fastlane/29H93BJQ55.json"
 
 #
 ENV['PROVISIONING_PROFILE_SPECIFIER'] = "match AppStore io.tuist.HelpMeChoose"
+#DEVELOPER_APP_ID = ENV["DEVELOPER_APP_ID"]
 
+KEY_ID = ENV["API_KEY_ID"]
 
 
 desc "build app and upload to testflight"
@@ -15,10 +17,12 @@ desc "build app and upload to testflight"
 	
 	
 	 app_store_connect_api_key(
-    		key_id: "29H93BJQ55",
+    		key_id: API_KEY_ID,
     		issuer_id: "627d91c8-cce6-4b96-b60a-d7022048374f",
     		key_content: "-----BEGIN PRIVATE KEY-----\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQg9O4zrN202k1PMdcl\nOKnw8hQDsV55UbOpf6ArUWr+deSgCgYIKoZIzj0DAQehRANCAAS9AkrqDCywxzeH\n1/FCNXV/fm6aTwLHSC3wgzuS54+ykdjZBTBr14hveIQU+rlXXlPwn0gk418lyOwP\n2nB4h/QM\n-----END PRIVATE KEY-----"
     	)
+
+	
 
 
     	latest_build_number=latest_testflight_build_number(
@@ -133,23 +137,9 @@ end
 
 
 
-def fastlaneSetting
-#	createKeyChain   
-#	importCertificate
-#	install_provisioning_profile(path: InstallProvisioningProfile)
-#	install_provisioning_profile(path: FastlaneProvisioningProfile)
-
-  
-
-end
-
 def buildApp(configuration)
 
-	#update_code_signing_settings(
-  	#	use_automatic_signing: false,
-  	#	code_sign_identity: 'iPhone Distribution',
-	#)
-	
+
 	update_code_signing_settings(
   		use_automatic_signing: false,
   		path: AppName + ".xcodeproj",
@@ -167,7 +157,7 @@ def buildApp(configuration)
 	
 
 
-	gym(
+	build_app(
 		workspace: AppName + ".xcworkspace", 
 		scheme: Scheme, 
 		configuration: configuration,
