@@ -31,3 +31,5 @@ jobs:
     - name: Fastlane Upload
       run: |
         fastlane NewVersionUpload
+      env:
+        API_KEY_ID: '${{ secrets.API_KEY_ID }}'
