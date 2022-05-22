@@ -8,13 +8,14 @@ ApiKeyPath = "fastlane/29H93BJQ55.json"
 ENV['PROVISIONING_PROFILE_SPECIFIER'] = "match AppStore io.tuist.HelpMeChoose"
 #DEVELOPER_APP_ID = ENV["DEVELOPER_APP_ID"]
 
-KEY_ID = ENV["API_KEY_ID"]
+API_KEY_ID = ENV["API_KEY_ID"]
 
 
 desc "build app and upload to testflight"
 	lane :NewVersionUpload do
 
-	
+	puts (API_KEY_ID)
+
 	
 	 app_store_connect_api_key(
     		key_id: API_KEY_ID,
