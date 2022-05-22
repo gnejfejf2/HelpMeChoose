@@ -19,15 +19,15 @@ jobs:
 #        name: id_rsa
 #        known_hosts: ${{ secrets.KNOWN_HOSTS }}
 
-    - name: Install Tuist
-      run: |
-        bash <(curl -Ls https://install.tuist.io)
-    - name: Generate project
-      run: |
-          tuist generate
-    - name: Fastlane Match
-      run: |
-        fastlane certificates
+#    - name: Install Tuist
+#      run: |
+#        bash <(curl -Ls https://install.tuist.io)
+#    - name: Generate project
+#      run: |
+#          tuist generate
+#    - name: Fastlane Match
+#      run: |
+#        fastlane certificates
     - name: Fastlane Upload
       run: |
         fastlane NewVersionUpload
